@@ -5,8 +5,7 @@ public class Main {
         System.out.println("Just for fun ;)");
 
 
-        System.out.println("Udalo sie ale wrocmy do master");
-
+        System.out.println("Chce spowrotem na master");
 
     }
 }
