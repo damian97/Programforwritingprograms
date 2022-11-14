@@ -4,13 +4,7 @@ public class Main {
         System.out.println("Witaj. Napisałem dla Ciebie program, który napisze prgram, który wykona wybraną przez Ciebie czynność.");
         System.out.println("Just for fun ;)");
 
-
-        System.out.println("Chce spowrotem na master");
-
-
-        System.out.println("Teraz komituje zmiany jako master");
-
-        System.out.println("Na spokojnie, jako Master teraz");
+        System.out.println("start pisanie kodu");
 
     }
 }
