@@ -5,7 +5,7 @@ public class Main {
         System.out.println("Just for fun ;)");
 
 
-
+        System.out.println("OK zrobmy galz na gicie, tylko jak hehe?");
 
 
     }
