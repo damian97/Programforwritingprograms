@@ -10,5 +10,7 @@ public class Main {
 
         System.out.println("Teraz komituje zmiany jako master");
 
+        System.out.println("Na spokojnie, jako Master teraz");
+
     }
 }
