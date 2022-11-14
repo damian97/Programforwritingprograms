@@ -1,14 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
-        System.out.println("Test gita");
-
-        int liczba = 2;
+        System.out.println("Witaj. Napisałem dla Ciebie program, który napisze prgram, który wykona wybraną przez Ciebie czynność.");
+        System.out.println("Just for fun ;)");
 
 
-        if (liczba >= 2) {
-            System.out.println("drugi kommin");
-        }
+
+
+
     }
 }
