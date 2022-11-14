@@ -7,5 +7,8 @@ public class Main {
 
         System.out.println("Chce spowrotem na master");
 
+
+        System.out.println("Teraz komituje zmiany jako master");
+
     }
 }
