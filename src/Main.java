@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException, AWTException, InterruptedException {
 
-        System.out.println("Witaj. Napisałem dla Ciebie program, który napisze prgram, który wykona wybraną przez Ciebie czynność.");
+        System.out.println("Witaj. Napisałem dla Ciebie program, który napisze program, który wykona wybraną przez Ciebie czynność.");
         System.out.println("Just for fun ;)");
 
 
@@ -22,9 +22,24 @@ public class Main {
         Scanner skaner = new Scanner(System.in);
         String wyborMenu = skaner.nextLine();
 
+
         if (wyborMenu.equals(menusTable[0]) || wyborMenu.equals("1")) {
             System.out.println("Wybrałeś pole trójkąta");
+
         }
+
+        if (wyborMenu.equals(menusTable[1]) || wyborMenu.equals("2")) {
+            System.out.println("Wybrałeś sumę dwóch liczb");
+        }
+
+        if (wyborMenu.equals(menusTable[2]) || wyborMenu.equals("3")) {
+            System.out.println("Wybrałeś Twierdzenie Pitagorasa");
+        }
+
+        if (wyborMenu.equals(menusTable[3]) || wyborMenu.equals("4")) {
+            System.out.println("Wybrałeś prostą gierkę");
+        }
+
 
 
         String command = "notepad.exe";
@@ -42,8 +57,8 @@ public class Main {
         Robot robot = new Robot();
 
 
+        //test commita na galazi master
 
-//
 //
 //
 //
