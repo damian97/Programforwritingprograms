@@ -18,6 +18,7 @@ public class Main {
             System.out.println(menusTable[i]);
         }
 
+        Engine eng = new Engine();
 
         Scanner skaner = new Scanner(System.in);
         String wyborMenu = skaner.nextLine();
@@ -57,7 +58,8 @@ public class Main {
         Robot robot = new Robot();
 
 
-        //test commita na galazi master
+
+
 
 //
 //
