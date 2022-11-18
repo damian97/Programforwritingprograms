@@ -26,42 +26,26 @@ public class Main {
 
         if (wyborMenu.equals(menusTable[0]) || wyborMenu.equals("1")) {
             System.out.println("Wybrałeś pole trójkąta");
-
+            eng.otworzNotepad();
         }
 
         if (wyborMenu.equals(menusTable[1]) || wyborMenu.equals("2")) {
             System.out.println("Wybrałeś sumę dwóch liczb");
+            eng.otworzNotepad();
         }
 
         if (wyborMenu.equals(menusTable[2]) || wyborMenu.equals("3")) {
             System.out.println("Wybrałeś Twierdzenie Pitagorasa");
+            eng.otworzNotepad();
         }
 
         if (wyborMenu.equals(menusTable[3]) || wyborMenu.equals("4")) {
             System.out.println("Wybrałeś prostą gierkę");
+            eng.otworzNotepad();
         }
 
 
 
-        String command = "notepad.exe";
-        Runtime run = Runtime.getRuntime();
-        run.exec(command);
-        try {
-            Thread.sleep(2000);
-        }
-        catch (InterruptedException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        Robot robot = new Robot();
-
-
-
-
-
-//
 //
 //
 //        Thread.sleep(500);
