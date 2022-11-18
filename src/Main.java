@@ -57,7 +57,8 @@ public class Main {
         Robot robot = new Robot();
 
 
-        //test commita na galazi master
+        System.out.println("siema");
+
 
 //
 //
