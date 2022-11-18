@@ -1,10 +1,7 @@
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException, AWTException, InterruptedException {
+    public static void main(String[] args) {
 
         System.out.println("Witaj. Napisałem dla Ciebie program, który napisze program, który wykona wybraną przez Ciebie czynność.");
         System.out.println("Just for fun ;)");
@@ -12,10 +9,9 @@ public class Main {
 
         //menu wyboru
 
-        int wybor = 0;
         String[] menusTable = {"1. Obliczanie pola trójkąta", "2. Suma dwoch liczb", "3. Twierdzenie Pitagorasa", "4. Prosta gierka"};
-        for (int i = 0; i < menusTable.length; i++) {
-            System.out.println(menusTable[i]);
+        for (String s : menusTable) {
+            System.out.println(s);
         }
 
         Engine eng = new Engine();
@@ -43,15 +39,6 @@ public class Main {
             System.out.println("Wybrałeś prostą gierkę");
             eng.otworzNotepad();
         }
-
-
-
-//
-//
-//        Thread.sleep(500);
-//        robot.keyPress(KeyEvent.VK_S);
-
-
 
 
     }

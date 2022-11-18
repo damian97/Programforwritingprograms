@@ -34,6 +34,8 @@ public class Engine {
     public void liczPoleTrojkata() {
 
 
+        //        Thread.sleep(500);
+//        robot.keyPress(KeyEvent.VK_S);
 
     }
 
