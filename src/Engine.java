@@ -31,7 +31,16 @@ public class Engine {
     }
 
 
+    public boolean szukajOkna() {
+
+
+
+        return false;
+    }
+
+
     public void liczPoleTrojkata() {
+
 
 
         //        Thread.sleep(500);
