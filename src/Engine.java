@@ -158,9 +158,6 @@ public class Engine {
         utworzMetody();
 
 
-        System.out.println("Test gita");
-
-
 
         zamknijMetody();
 
