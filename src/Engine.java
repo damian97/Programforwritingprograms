@@ -42,6 +42,15 @@ public class Engine {
     public void liczPoleTrojkata() {
 
 
+        char[][] linie = {
+                {'p', 'u', 'b', 'l', 'i', 'c', ' ', 'c', 'l', 'a', 's', 's', ' ', 'M', 'a', 'i', 'n', ' ', '{'},
+                {'p', 'u', 'b', 'l', 'i', 'c', ' ', 's', 't', 'a', 't', 'i', 'c', ' ', 'v', 'o', 'i', 'd', ' ', 'm', 'a', 'i', 'n', '(', 'S', 't', 'r', 'i', 'n', 'g', '[', ']', ' ', 'a', 'r', 'g', 's', ')', ' ', '{'},
+                {'}'},
+                {'}'},
+                {}
+        };
+
+
 
         //        Thread.sleep(500);
 //        robot.keyPress(KeyEvent.VK_S);
