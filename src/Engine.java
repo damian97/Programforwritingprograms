@@ -159,13 +159,7 @@ public class Engine {
 
         utworzMetody();
 
-        int pole;
-        int a = 2;
-        int h = 4;
 
-        System.out.println("Pole kwadratu = " + (a*h) / 2);
-
-        zamknijMetody();
 
 
     }
