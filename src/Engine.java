@@ -21,7 +21,7 @@ public class Engine {
     }
 
 
-    String nazwaKlasy = "Tringle";
+    String nazwaKlasy = "Triangle";
 
 
     String zdanie1 = "public class " + nazwaKlasy + " *";
@@ -155,9 +155,15 @@ public class Engine {
 
     public void liczPoleTrojkata() {
 
+
+
         utworzMetody();
 
+        int pole;
+        int a = 2;
+        int h = 4;
 
+        System.out.println("Pole kwadratu = " + (a*h) / 2);
 
         zamknijMetody();
 
