@@ -151,6 +151,15 @@ public class Engine {
 
     }
 
+    public void wpiszEnter(int liczba) {
+
+        for(int i = 0; i < liczba; i++) {
+            bot.keyPress(KeyEvent.VK_ENTER);
+            bot.delay(50);
+            bot.keyRelease(KeyEvent.VK_ENTER);
+        }
+
+    }
 
 
     public void liczPoleTrojkata() {
@@ -159,7 +168,19 @@ public class Engine {
 
         utworzMetody();
 
+        String pole =  "int area;";
+        String a = "int a =";
+        String h = "int h =";
 
+        wpiszEnter(1);
+        for (int i = 0; i < pole.length(); i++) {
+            bot.keyPress(Character.toUpperCase(pole.charAt(i)));
+            bot.delay(50);
+        }
+
+//        System.out.println("Pole kwadratu = " + (a*h) / 2);
+
+        zamknijMetody();
 
 
     }
