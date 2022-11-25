@@ -1,3 +1,4 @@
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -31,6 +32,9 @@ public class Engine {
     String zdanie1 = "public class " + nazwaKlasy + " *";
     String zdanie2 = "    public static void main(String[] args) *";
     String klamra = "}";
+    int a = 0;
+    int h = 0;
+    int pole = 0;
 
 
     public void otworzNotepad() {
@@ -170,58 +174,16 @@ public class Engine {
         bot.keyRelease(KeyEvent.VK_TAB);
     }
 
-    public boolean sprawdzLiczbeZmiennej() {
+
+    public void pobierzZmiene() {
 
 
-        bot.delay(500);
-        bot.keyPress(KeyEvent.VK_CONTROL);
-        bot.keyPress(KeyEvent.VK_A);
-        bot.keyRelease(KeyEvent.VK_A);
-        bot.delay(50);
-        bot.keyPress(KeyEvent.VK_C);
-        bot.keyRelease(KeyEvent.VK_C);
-        bot.keyRelease(KeyEvent.VK_CONTROL);
-        bot.delay(250);
+        Scanner skaner = new Scanner(System.in);
+        System.out.println("Podaj a");
+        a = skaner.nextInt();
+        System.out.println("Podaj h");
+        h = skaner.nextInt();
 
-
-
-        Clipboard systemClipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        DataFlavor dataFlavor = DataFlavor.stringFlavor;
-
-
-        Object text;
-
-        try {
-            text = systemClipboard.getData(dataFlavor);
-        } catch (UnsupportedFlavorException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        String tekst = (String) text;
-
-        String pole = "int area;";
-
-        int dlugoscKodu = tekst.length();
-
-        for (int i = 0, j = 0; i < dlugoscKodu; i++) {
-
-            if (tekst.charAt(i) == pole.charAt(j)) {
-                j++;
-            } else {
-                j = 0;
-            }
-            if (j >= pole.length()-1) {
-                System.out.println(pole.charAt(j));
-            }
-            System.out.print(tekst.charAt(i));
-
-        }
-
-
-        return false;
     }
 
 
@@ -232,26 +194,92 @@ public class Engine {
         utworzMetody();
 
         String pole =  "int area;";
-        String a = "int a =";
-        String h = "int h =";
+        String a = "int a =  ";
+        String h = "int h =  ";
 
         wpiszEnter(1);
         wpiszTab();
-        for (int i = 0; i < pole.length(); i++) {
-            bot.keyPress(Character.toUpperCase(pole.charAt(i)));
-            bot.delay(50);
+
+        bot.setAutoDelay(50);
+
+        for(int j = 0; j < 3; j++) {
+            for (int i = 0; i < pole.length(); i++) {
+                if (j == 0) {
+                    bot.keyPress(Character.toUpperCase(pole.charAt(i)));
+                } else if (j == 1) {
+                    bot.keyPress(Character.toUpperCase(a.charAt(i)));
+                    if (i == pole.length()-1) {
+                        bot.keyPress(KeyEvent.VK_BACK_SPACE);
+                        bot.keyRelease(KeyEvent.VK_BACK_SPACE);
+                        if (this.a > 9) {
+                            rozbijLiczbeNaCyfry(this.a);
+                        } else {
+                            bot.keyPress(zwracajKeyCode(this.a));
+                            bot.keyRelease(zwracajKeyCode(this.a));
+                        }
+                        bot.keyPress(KeyEvent.VK_SEMICOLON);
+                        bot.keyRelease(KeyEvent.VK_SEMICOLON);
+                    }
+                } else {
+                    bot.keyPress(Character.toUpperCase(h.charAt(i)));
+                    if (i == pole.length()-1) {
+                        bot.keyPress(KeyEvent.VK_BACK_SPACE);
+                        bot.keyRelease(KeyEvent.VK_BACK_SPACE);
+                        if (this.h > 9) {
+                            rozbijLiczbeNaCyfry(this.h);
+                        } else {
+                            bot.keyPress(zwracajKeyCode(this.h));
+                            bot.keyRelease(zwracajKeyCode(this.h));
+                        }
+                        bot.keyPress(KeyEvent.VK_SEMICOLON);
+                        bot.keyRelease(KeyEvent.VK_SEMICOLON);
+                    }
+                }
+
+            }
+            wpiszEnter(1);
+            wpiszTab();
         }
 
 
-        while (!sprawdzLiczbeZmiennej()) {
+        bot.setAutoDelay(30);
 
-            bot.delay(5000);
+        String drukuj = "System.out.println('Pole kwadratu = ' + (a*h) / 2);";
+
+
+
+
+        for(int i = 0; i < drukuj.length(); i++) {
+            char znak = drukuj.charAt(i);
+
+
+            if (znak == '(') {
+                zapiszDoSchowka("(");
+                wklej();
+            } else if (znak == '*') {
+                zapiszDoSchowka("*");
+                wklej();
+            } else if  (znak == ')') {
+                zapiszDoSchowka(")");
+                wklej();
+            } else if  (znak == '+') {
+                zapiszDoSchowka("+");
+                wklej();
+            } else {
+                if (i == 0 || i == 19) {
+                    bot.keyPress(KeyEvent.VK_SHIFT);
+                    wcisnijZnak(znak);
+                    bot.keyRelease(KeyEvent.VK_SHIFT);
+                } else {
+                    wcisnijZnak(znak);
+                }
+            }
+
+
+
+
 
         }
-        bot.delay(4000);
-
-
-
 
 
 //        System.out.println("Pole kwadratu = " + (a*h) / 2);    wzor na pole trojkata
@@ -260,5 +288,55 @@ public class Engine {
 
 
     }
+
+
+    public void rozbijLiczbeNaCyfry(int liczba) {
+
+        int liczba1 = liczba / 10;
+        int liczba2 = liczba % 10;
+        bot.keyPress(zwracajKeyCode(liczba1));
+        bot.keyRelease(zwracajKeyCode(liczba1));
+        bot.keyPress(zwracajKeyCode(liczba2));
+        bot.keyRelease(zwracajKeyCode(liczba2));
+
+    }
+
+
+    public void wcisnijZnak(char znak) {
+
+
+        bot.keyPress(KeyEvent.getExtendedKeyCodeForChar(znak));
+        bot.keyRelease(KeyEvent.getExtendedKeyCodeForChar(znak));
+    }
+
+    public int zwracajKeyCode(int liczba) {
+
+
+        switch (liczba) {
+            case 0:
+                return KeyEvent.VK_0;
+            case 1:
+                return KeyEvent.VK_1;
+            case 2:
+                return KeyEvent.VK_2;
+            case 3:
+                return KeyEvent.VK_3;
+            case 4:
+                return KeyEvent.VK_4;
+            case 5:
+                return KeyEvent.VK_5;
+            case 6:
+                return KeyEvent.VK_6;
+            case 7:
+                return KeyEvent.VK_7;
+            case 8:
+                return KeyEvent.VK_8;
+            case 9 :
+                return KeyEvent.VK_9;
+            default:
+                return KeyEvent.VK_0;
+        }
+    }
+
 
 }
