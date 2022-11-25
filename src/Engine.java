@@ -256,6 +256,9 @@ public class Engine {
             if (znak == '(') {
                 zapiszDoSchowka("(");
                 wklej();
+            } else if (znak == '_') {
+                zapiszDoSchowka("'");
+                wklej();
             } else if (znak == '*') {
                 zapiszDoSchowka("*");
                 wklej();
@@ -266,7 +269,7 @@ public class Engine {
                 zapiszDoSchowka("+");
                 wklej();
             } else {
-                if (i == 0 || i == 19) {
+                if (i == 0 || i >= 19 && i <= 20 || i == 36) {
                     bot.keyPress(KeyEvent.VK_SHIFT);
                     wcisnijZnak(znak);
                     bot.keyRelease(KeyEvent.VK_SHIFT);
