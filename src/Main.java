@@ -22,6 +22,7 @@ public class Main {
 
         if (wyborMenu.equals(menusTable[0]) || wyborMenu.equals("1")) {
             System.out.println("Wybrałeś pole trójkąta");
+            eng.pobierzZmiene();
             eng.otworzNotepad();
             eng.liczPoleTrojkata();
         }
