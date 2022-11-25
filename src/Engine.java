@@ -246,7 +246,7 @@ public class Engine {
 
         String drukuj = "System.out.println('Pole kwadratu = ' + (a*h) / 2);";
 
-
+        //sss
 
 
         for(int i = 0; i < drukuj.length(); i++) {
