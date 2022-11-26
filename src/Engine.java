@@ -4,6 +4,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 public class Engine {
 
     Robot bot;
-
+    Compiler kompilator;
     public Engine() {
 
 //        pomagaj();
@@ -55,6 +56,49 @@ public class Engine {
             e.printStackTrace();
         }
 
+    }
+
+
+
+    public void pisz(String ciagZnakow) {
+
+        int dlugoscZdania = ciagZnakow.length();
+        char znak;
+
+        bot.setAutoDelay(30);
+
+        for (int i = 0; i < dlugoscZdania; i++) {
+            znak = ciagZnakow.charAt(i);
+            if (Character.isUpperCase(znak)) {
+                bot.keyPress(KeyEvent.VK_SHIFT);
+                bot.keyPress(Character.toUpperCase(znak));
+                bot.keyRelease(Character.toUpperCase(znak));
+                bot.keyRelease(KeyEvent.VK_SHIFT);
+            } else {
+                bot.keyPress(Character.toUpperCase(znak));
+                bot.keyRelease(Character.toUpperCase(znak));
+            }
+        }
+
+
+    }
+
+
+    public boolean przesunKursor(int pozycjaX, int pozycjaY) {
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = (int) screenSize.getWidth();
+        int y = (int) screenSize.getHeight();
+
+        if (pozycjaX > x || pozycjaY > y) {
+            System.out.println("Wyszedłeś poza zakres");
+            return false;
+        } else {
+            bot.mouseMove(pozycjaX, pozycjaY);
+
+            return true;
+        }
     }
 
 
@@ -285,7 +329,23 @@ public class Engine {
 
 //        System.out.println("Pole kwadratu = " + (a*h) / 2);    wzor na pole trojkata
 
+        kompilator = new Compiler();
+
         zamknijMetody();
+
+        bot.delay(500);
+
+        przesunKursor(585, 480);
+
+        bot.setAutoDelay(500);
+
+        bot.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
+
+        bot.keyPress(KeyEvent.VK_DOWN);
+        bot.keyRelease(KeyEvent.VK_DOWN);
+
+        kompilator.zapiszPlik(nazwaKlasy);
 
 
     }

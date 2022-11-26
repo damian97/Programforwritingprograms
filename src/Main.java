@@ -19,6 +19,12 @@ public class Main {
         Scanner skaner = new Scanner(System.in);
         String wyborMenu = skaner.nextLine();
 
+                // test
+        if (wyborMenu == "0") {
+
+            System.out.println("To jest tryb testowy");
+        }
+                //test
 
         if (wyborMenu.equals(menusTable[0]) || wyborMenu.equals("1")) {
             System.out.println("Wybrałeś pole trójkąta");
