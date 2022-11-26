@@ -244,9 +244,7 @@ public class Engine {
 
         bot.setAutoDelay(30);
 
-        String drukuj = "System.out.println('Pole kwadratu = ' + (a*h) / 2);";
-
-        //sss
+        String drukuj = "System.out.println('Pole trojkata = ' + (a*h) / 2);";
 
 
         for(int i = 0; i < drukuj.length(); i++) {
