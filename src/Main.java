@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -20,8 +21,10 @@ public class Main {
         String wyborMenu = skaner.nextLine();
 
                 // test
-        if (wyborMenu == "0") {
-
+        if (wyborMenu.equals("0")) {
+            eng.test();
+            Compiler kom = new Compiler();
+            kom.kompiluj();
             System.out.println("To jest tryb testowy");
         }
                 //test

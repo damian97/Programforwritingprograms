@@ -1,5 +1,7 @@
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class Compiler {
 
@@ -37,9 +39,6 @@ public class Compiler {
         }
 
 
-            System.out.println(MouseInfo.getPointerInfo().getLocation().x);
-            System.out.println(MouseInfo.getPointerInfo().getLocation().y);
-
     }
 
 
@@ -75,5 +74,73 @@ public class Compiler {
         }
 
     }
+
+
+
+
+    public void kompiluj() {
+
+
+        try {
+            Runtime.getRuntime().exec("explorer.exe");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+
+        robot.delay(2000);
+
+
+        robot.setAutoDelay(500);
+
+        engine.przesunKursor(600, 230);
+
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+        engine.pisz("Dokumenty");
+
+        engine.wpiszEnter(1);
+
+        engine.przesunKursor(650, 550);
+
+        robot.delay(500);
+
+        robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+        robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+
+        engine.przesunKursor(680, 530);
+
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+        String komendaKopilacji = "javac ";
+        String komendaOdpalenia = "java ";
+        String nazwa = nazwaPliku;
+        String rozszerzenie = ".java";
+
+
+        robot.delay(2000);
+
+        engine.pisz(komendaKopilacji.concat(nazwaPliku).concat(rozszerzenie));
+
+        engine.wpiszEnter(1);
+
+        robot.delay(1000);
+
+        engine.pisz(komendaOdpalenia.concat(nazwa));
+
+        engine.wpiszEnter(1);
+    }
+
+
+
+
+
 
 }

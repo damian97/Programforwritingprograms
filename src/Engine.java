@@ -33,6 +33,9 @@ public class Engine {
     String zdanie1 = "public class " + nazwaKlasy + " *";
     String zdanie2 = "    public static void main(String[] args) *";
     String klamra = "}";
+
+    String zapiszDo = "Dokumenty";
+
     int a = 0;
     int h = 0;
     int pole = 0;
@@ -335,21 +338,55 @@ public class Engine {
 
         bot.delay(500);
 
+        kompilator.zapiszPlik(nazwaKlasy);
+
         przesunKursor(585, 480);
 
-        bot.setAutoDelay(500);
+        bot.delay(500);
 
-        bot.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
-        bot.mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.delay(250);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+        bot.delay(500);
 
         bot.keyPress(KeyEvent.VK_DOWN);
         bot.keyRelease(KeyEvent.VK_DOWN);
 
-        kompilator.zapiszPlik(nazwaKlasy);
+        bot.setAutoDelay(500);
+        przesunKursor(390,510);
 
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+        wpiszEnter(1);
+
+        bot.keyPress(KeyEvent.VK_ALT);
+        bot.keyPress(KeyEvent.VK_F4);
+        bot.keyRelease(KeyEvent.VK_F4);
+        bot.keyRelease(KeyEvent.VK_ALT);
+
+        bot.delay(1000);
+
+        kompilator.kompiluj();
 
     }
 
+
+
+    public void test() {
+
+        bot.delay(250);
+
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+
+        System.out.println(MouseInfo.getPointerInfo().getLocation().x);
+        System.out.println(MouseInfo.getPointerInfo().getLocation().y);
+
+
+    }
 
     public void rozbijLiczbeNaCyfry(int liczba) {
 
