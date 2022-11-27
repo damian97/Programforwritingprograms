@@ -95,7 +95,6 @@ public class Compiler {
 
         robot.delay(2000);
 
-
         robot.setAutoDelay(500);
 
         engine.przesunKursor(600, 230);
@@ -123,7 +122,6 @@ public class Compiler {
         String komendaOdpalenia = "java ";
         String nazwa = nazwaPliku;
         String rozszerzenie = ".java";
-
 
         robot.delay(2000);
 

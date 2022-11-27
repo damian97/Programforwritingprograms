@@ -1,14 +1,9 @@
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
-import java.security.Key;
 import java.util.Scanner;
 
 public class Engine {
@@ -32,14 +27,11 @@ public class Engine {
 
     String zdanie1 = "public class " + nazwaKlasy + " *";
     String zdanie2 = "    public static void main(String[] args) *";
-    String klamra = "}";
 
     String zapiszDo = "Dokumenty";
 
     int a = 0;
     int h = 0;
-    int pole = 0;
-
 
     public void otworzNotepad() {
 
@@ -104,26 +96,6 @@ public class Engine {
         }
     }
 
-
-    public boolean szukajOkna() {
-
-
-
-        return false;
-    }
-
-
-    public void pomagaj() {
-
-
-        for(int i = 0; i < 1000000; ++i) {
-            String text = java.awt.event.KeyEvent.getKeyText(i);
-            if(!text.contains("Unknown keyCode: ")) {
-                System.out.println("" + i + " -- " + text);
-            }
-        }
-
-    }
 
     public void zapiszDoSchowka(String znak) {
 
