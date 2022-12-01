@@ -10,7 +10,7 @@ public class Sum {
     String nazwaKlasy = "Sum";
     char znak;
 
-    char tablicaZnakow[] = {'{', '}', ']', ')', '(', '[', '/', '*', '-', '+', ',', '.', '%', '='};
+    char[] tablicaZnakow = {'{', '}', ']', ')', '(', '[', '/', '*', '-', '+', ',', '.', '%', '='};
     Engine eng;
 
 
@@ -21,11 +21,6 @@ public class Sum {
         System.out.println("Podaj drugą liczbę");
         b = skaner.nextInt();
 
-    }
-
-    public Sum(boolean test) {
-        a = 2;
-        b = 2;
     }
 
 
@@ -41,13 +36,11 @@ public class Sum {
 
         robot.setAutoDelay(autoDelay);
 
-        String aktualnyTekst = tekst;
-        int dlugoscTekstu = aktualnyTekst.length();
-        boolean specjalnyZnak = false;
+        int dlugoscTekstu = tekst.length();
 
 
         for (int i = 0; i < dlugoscTekstu; i++) {
-            char aktualnyZnak = aktualnyTekst.charAt(i);
+            char aktualnyZnak = tekst.charAt(i);
 
 
             if (skanujTablice(aktualnyZnak)) {
@@ -75,7 +68,7 @@ public class Sum {
 
     public boolean skanujTablice(char aktualnyZnak) {
 
-        char charTable[] = tablicaZnakow;
+        char[] charTable = tablicaZnakow;
 
         for(int i = 0; i < charTable.length; i++) {
             if (aktualnyZnak == charTable[i]) {
@@ -101,6 +94,13 @@ public class Sum {
 
         piszTekst("public class " + nazwaKlasy + " {");
         piszTekst("    public static void main(String[] args) {");
+        piszTekst("    int a = " + a + ";");
+        piszTekst("    int b = " + b + ";");
+        piszTekst("    int sum;");
+        piszTekst("    sum = a + b;");
+        piszTekst("    System.out.println(suma);");
+        piszTekst("    }");
+        piszTekst("}");
 
     }
 
