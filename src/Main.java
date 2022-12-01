@@ -15,6 +15,7 @@ public class Main {
         }
 
         Engine eng = new Engine();
+        Sum suma;
 
         Scanner skaner = new Scanner(System.in);
         String wyborMenu = skaner.nextLine();
@@ -38,6 +39,8 @@ public class Main {
         if (wyborMenu.equals(menusTable[1]) || wyborMenu.equals("2")) {
             System.out.println("Wybrałeś sumę dwóch liczb");
             eng.otworzNotepad();
+            suma = new Sum(true);
+            suma.piszKod();
         }
 
         if (wyborMenu.equals(menusTable[2]) || wyborMenu.equals("3")) {
