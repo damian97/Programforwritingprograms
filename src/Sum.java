@@ -70,9 +70,9 @@ public class Sum {
 
         char[] charTable = tablicaZnakow;
 
-        for(int i = 0; i < charTable.length; i++) {
-            if (aktualnyZnak == charTable[i]) {
-                znak = charTable[i];
+        for(char x : charTable) {
+            if (aktualnyZnak == x) {
+                znak = x;
                 return true;
             }
         }
