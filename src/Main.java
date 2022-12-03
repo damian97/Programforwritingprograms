@@ -39,7 +39,7 @@ public class Main {
 
         if (wyborMenu.equals(menusTable[1]) || wyborMenu.equals("2")) {
             System.out.println("Wybrałeś sumę dwóch liczb");
-            suma = new Sum();
+            suma = new Sum(true);
             eng.otworzNotepad();
             suma.piszKod();
             suma.kompiluj();

@@ -11,16 +11,19 @@ public class Sum {
     String nazwaKlasy = "Sum";
     char znak;
 
-    char[] tablicaZnakow = {'{', '}', ']', ')', '(', '[', '/', '*', '-', '+', ',', '.', '%', '='};
+    char[] tablicaZnakow = {'{', '}', ']', ')', '(', '[', '/', '*', '-', '+', ',', '.', '%', '=', ':', '"'};
     Engine eng;
 
 
-    public Sum() {
-        Scanner skaner = new Scanner(System.in);
-        System.out.println("Podaj pierwszą liczbę");
-        a = skaner.nextInt();
-        System.out.println("Podaj drugą liczbę");
-        b = skaner.nextInt();
+    public Sum(boolean empty) {
+
+        if (empty) {
+            Scanner skaner = new Scanner(System.in);
+            System.out.println("Podaj pierwszą liczbę");
+            a = skaner.nextInt();
+            System.out.println("Podaj drugą liczbę");
+            b = skaner.nextInt();
+        }
 
     }
 
