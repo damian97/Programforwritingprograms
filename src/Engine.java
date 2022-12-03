@@ -340,7 +340,7 @@ public class Engine {
 
         bot.delay(1000);
 
-        kompilator.kompiluj();
+        kompilator.kompiluj(nazwaKlasy);
 
     }
 

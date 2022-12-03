@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
@@ -98,11 +99,56 @@ public class Sum {
         piszTekst("    int b = " + b + ";");
         piszTekst("    int sum;");
         piszTekst("    sum = a + b;");
-        piszTekst("    System.out.println(suma);");
+        piszTekst("    System.out.println(sum);");
         piszTekst("    }");
         piszTekst("}");
 
     }
+
+    Compiler kompilator;
+    public void kompiluj() {
+
+        String nazwaKlasy = "Sum";
+
+        kompilator = new Compiler();
+
+        robot.delay(500);
+
+        kompilator.zapiszPlik(nazwaKlasy);
+
+        eng.przesunKursor(585, 480);
+
+        robot.delay(500);
+
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        robot.delay(250);
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+        robot.delay(500);
+
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyRelease(KeyEvent.VK_DOWN);
+
+        robot.setAutoDelay(500);
+        eng.przesunKursor(390,510);
+
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+        eng.wpiszEnter(1);
+
+        robot.keyPress(KeyEvent.VK_ALT);
+        robot.keyPress(KeyEvent.VK_F4);
+        robot.keyRelease(KeyEvent.VK_F4);
+        robot.keyRelease(KeyEvent.VK_ALT);
+
+        robot.delay(1000);
+
+        kompilator.kompiluj(nazwaKlasy);
+
+
+    }
+
 
 
 }

@@ -22,12 +22,12 @@ public class Compiler {
 
         skrotKlawiszowy('s', false);
 
-        for (int i = 0; i < nazwaPliku.length(); i++) {
+        for (int i = 0; i < nazwa.length(); i++) {
             if (i < 1) {
                 robot.keyPress(KeyEvent.VK_SHIFT);
             }
-            robot.keyPress(Character.toUpperCase(nazwaPliku.charAt(i)));
-            robot.keyRelease(Character.toUpperCase(nazwaPliku.charAt(i)));
+            robot.keyPress(Character.toUpperCase(nazwa.charAt(i)));
+            robot.keyRelease(Character.toUpperCase(nazwa.charAt(i)));
             if (i < 1) {
                 robot.keyRelease(KeyEvent.VK_SHIFT);
             }
@@ -78,7 +78,7 @@ public class Compiler {
 
 
 
-    public void kompiluj() {
+    public void kompiluj(String nazwa) {
 
 
         try {
@@ -120,12 +120,11 @@ public class Compiler {
 
         String komendaKopilacji = "javac ";
         String komendaOdpalenia = "java ";
-        String nazwa = nazwaPliku;
         String rozszerzenie = ".java";
 
         robot.delay(2000);
 
-        engine.pisz(komendaKopilacji.concat(nazwaPliku).concat(rozszerzenie));
+        engine.pisz(komendaKopilacji.concat(nazwa).concat(rozszerzenie));
 
         engine.wpiszEnter(1);
 

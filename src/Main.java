@@ -24,7 +24,7 @@ public class Main {
         if (wyborMenu.equals("0")) {
             eng.test();
             Compiler kom = new Compiler();
-            kom.kompiluj();
+            kom.kompiluj(eng.nazwaKlasy);
             System.out.println("To jest tryb testowy");
         }
                 //test
@@ -41,6 +41,7 @@ public class Main {
             suma = new Sum();
             eng.otworzNotepad();
             suma.piszKod();
+            suma.kompiluj();
         }
 
         if (wyborMenu.equals(menusTable[2]) || wyborMenu.equals("3")) {
