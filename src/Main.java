@@ -22,10 +22,11 @@ public class Main {
 
                 // test
         if (wyborMenu.equals("0")) {
-            eng.test();
-            Compiler kom = new Compiler();
-            kom.kompiluj(eng.nazwaKlasy);
             System.out.println("To jest tryb testowy");
+
+            PythagoreanTheorem PyTheory = new PythagoreanTheorem();
+
+
         }
                 //test
 
