@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,26 +8,40 @@ import java.util.Scanner;
 public class PythagoreanTheorem {
 
     String nazwaKlasy = "PyTheory";
-    String komendaKompilacji = "javac";
-    String komendaUruchamiajaca = "java";
     String sciezkaDoPliku = "File";
+    String sciezkaDoCmd = "C:\\Users\\srync\\IdeaProjects\\Programforwritingprograms\\File";
 
-    int a, b, c;
+    int a, b;
 
     Scanner skaner;
+    Robot robot;
     Sum suma;
+    Engine eng;
 
     public PythagoreanTheorem() {
 
         File file = new File(sciezkaDoPliku + "/" + nazwaKlasy + ".java");
+        suma = new Sum(false);
+        eng = new Engine();
 
         pobierzZmienne();
         tworzPlik(file);
         spij(1);
         otworzPlik(file);
         spij(1);
-
         piszKod();
+        spij(1);
+        zamknijOkno();
+        spij(1);
+        otworzTerminal();
+        spij(1);
+        suma.piszTekst("cd " + sciezkaDoCmd);
+        eng.wpiszEnter(1);
+        suma.piszTekst("javac " + nazwaKlasy + ".java");
+        eng.wpiszEnter(1);
+        suma.piszTekst("java " + nazwaKlasy);
+        eng.wpiszEnter(1);
+
 
 
     }
@@ -41,6 +56,20 @@ public class PythagoreanTheorem {
         System.out.println("Podaj długość drugiej przyprostokątnej: ");
         b = skaner.nextInt();
 
+    }
+
+    public void zamknijOkno() {
+
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+
+        robot.keyPress(KeyEvent.VK_ALT);
+        robot.keyPress(KeyEvent.VK_F4);
+        robot.keyRelease(KeyEvent.VK_F4);
+        robot.keyRelease(KeyEvent.VK_ALT);
     }
 
 
@@ -100,7 +129,7 @@ public class PythagoreanTheorem {
     public void piszKod() {
 
         suma = new Sum(false);
-        String syso = "System.out.println(";
+        String syso = "System.out.print(";
         char znak = '"';
         String tekst = "Dlugosc przyprostokatnej jest rowna: ";
 
@@ -124,7 +153,24 @@ public class PythagoreanTheorem {
             suma.piszTekst(linijkaKodu);
         }
 
+        spij(1);
+        Compiler kompiluj = new Compiler();
+        kompiluj.skrotKlawiszowy('s', false);
+        spij(1);
+
     }
+
+
+    public void otworzTerminal() {
+
+        try {
+           Runtime.getRuntime().exec("cmd /c start cmd.exe");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 
 }

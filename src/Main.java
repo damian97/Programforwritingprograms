@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -23,9 +24,7 @@ public class Main {
                 // test
         if (wyborMenu.equals("0")) {
             System.out.println("To jest tryb testowy");
-
             PythagoreanTheorem PyTheory = new PythagoreanTheorem();
-
 
         }
                 //test
@@ -47,7 +46,7 @@ public class Main {
 
         if (wyborMenu.equals(menusTable[2]) || wyborMenu.equals("3")) {
             System.out.println("Wybrałeś Twierdzenie Pitagorasa");
-            eng.otworzNotepad();
+            PythagoreanTheorem PyTheory = new PythagoreanTheorem();
         }
 
         if (wyborMenu.equals(menusTable[3]) || wyborMenu.equals("4")) {
