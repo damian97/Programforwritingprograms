@@ -51,7 +51,12 @@ public class Main {
 
         if (wyborMenu.equals(menusTable[3]) || wyborMenu.equals("4")) {
             System.out.println("Wybrałeś prostą gierkę");
-            eng.otworzNotepad();
+
+            NewEngine nEng = new NewEngine();
+            nEng.openNotepad();
+            nEng.writtingCode();
+
+
         }
 
 
